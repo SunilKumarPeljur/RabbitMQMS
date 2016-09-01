@@ -1,0 +1,13 @@
+spring:
+  application:
+    name: rabbit-mq-ms
+  cloud:
+    config:
+      uri: http://localhost:9190
+    consul:
+      discovery:
+        instance-id: ${spring.application.name}:${spring.application.instance_id:${random.value}}
+        health-check-interval: 10m
+
+server:
+  port: ${PORT:${SERVER_PORT:0}}
